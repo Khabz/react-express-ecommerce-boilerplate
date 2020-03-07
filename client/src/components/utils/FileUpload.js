@@ -14,7 +14,7 @@ function FileUpload(props) {
         }
         formData.append("file", files[0])
         //save the Image we chose inside the Node Server 
-        Axios.post('/api/product/uploadImage', formData, config)
+        Axios.post('/api/meal/uploadImage', formData, config)
             .then(response => {
                 if (response.data.success) {
 

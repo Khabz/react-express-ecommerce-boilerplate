@@ -1,21 +1,24 @@
 import React, {useState} from 'react'
 import FileUpload from '../../utils/FileUpload'
+import Axios from 'axios';
 
 const servings = [
     { key:1, value:"Breakfast" },
     { key:2, value:"Lunch" },
     { key:3, value:"Dinner" },
     { key:4, value:"Beverages" },
-    { key:1, value:"Snack" }
+    { key:5, value:"Snack" }
 ]
 
-function UploadMealPage() {
+function UploadMealPage(props) {
 
 
     const [NameValue, setNameValue] = useState("");
     const [DescriptionValue, setDescriptionValue] = useState("");
     const [PriceValue, setPriceValue] = useState(0);
     const [ServingValue, setServingValue] = useState(1);
+
+    const [Images, setImages] = useState([])
 
     const onNameChange = (event) => {
         setNameValue(event.currentTarget.value)
@@ -29,14 +32,43 @@ function UploadMealPage() {
     const onServingsSelectChange = (event) => {
         setServingValue(event.currentTarget.value)
     }
+    const updateImage = (newImages) =>  {
+        setImages(newImages)
+    }
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+
+        if(!NameValue || !DescriptionValue || !PriceValue 
+            || !Images || !ServingValue) {
+                alert('fill all the fields first')
+        }
+        const variables = {
+            writer: props.user.userData._id,
+            name: NameValue,
+            description: DescriptionValue,
+            price: PriceValue,
+            images: Images,
+            serving: ServingValue
+        }
+
+        Axios.post('/api/meal/uploadMeal', variables)
+            .then(response => {
+                if(response.data.success) {
+                    alert('Meal successfully added')
+                } else {
+                    alert('Something went wrong, Please try again')
+                }
+            })
+    }
     return (
         <div style={{ maxWidth: '700px', margin: '2em auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '2em' }}>
                 <h2>Add New Meal</h2>
             </div>
 
-            <form className="pr-3 pl-3">
-                <FileUpload />
+            <form onSubmit={onSubmit} className="pr-3 pl-3">
+                <FileUpload refreshFunction={updateImage} />
                 <div className="form-group">
                     <label>Meal Name</label>
                     <input 
@@ -70,7 +102,11 @@ function UploadMealPage() {
                     </select>
                 </div>
 
-                <button className="btn btn-outline-primary mt-3">Submit</button>
+                <button 
+                    //onSubmit
+                    className="btn btn-outline-primary mt-3">
+                    Submit
+                </button>
             </form>
         </div>
     )
