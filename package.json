@@ -1,7 +1,7 @@
 {
     "name": "travmeal",
     "version": "1.0.0",
-    "description": "react blog",
+    "description": "Employee Cafe",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,5 +13,8 @@
         "cookie-parser": "^1.4.4",
         "express": "^4.17.1",
         "mongoose": "^5.9.3"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.2"
     }
 }
