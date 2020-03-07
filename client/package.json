@@ -1,5 +1,5 @@
 {
-    "name": "travmeal client",
+    "name": "client",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -40,6 +40,10 @@
         ]
     },
     "devDependencies": {
-        "http-proxy-middleware": "^0.19.1"
+        "babel-plugin-react-html-attrs": "^2.1.0",
+        "bootstrap": "^4.4.1",
+        "http-proxy-middleware": "^0.19.1",
+        "jquery": "^3.4.1",
+        "popper.js": "^1.16.1"
     }
 }
