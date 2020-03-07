@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import FileUpload from '../../utils/FileUpload'
 
 const servings = [
     { key:1, value:"Breakfast" },
@@ -35,6 +36,7 @@ function UploadMealPage() {
             </div>
 
             <form className="pr-3 pl-3">
+                <FileUpload />
                 <div className="form-group">
                     <label>Meal Name</label>
                     <input 
