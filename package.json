@@ -10,7 +10,9 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server/index.js",
-        "backend": "nodemon server/index.js"
+        "backend": "nodemon server/index.js",
+        "frontend": "npm run front --prefix client",
+        "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\""
     },
     "author": "Khabubu Ndivhuwo",
     "license": "ISC",
@@ -23,6 +25,7 @@
         "mongoose": "^5.9.3"
     },
     "devDependencies": {
+        "http-proxy-middleware": "^1.0.1",
         "nodemon": "^2.0.2"
     }
 }
