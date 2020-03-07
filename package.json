@@ -3,10 +3,14 @@
     "version": "1.0.0",
     "description": "Employee Cafe",
     "main": "index.js",
+    "engine": {
+        "node": "10.16.0",
+        "npm": "6.9.0"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node index.js",
-        "backend": "nodemon index.js"
+        "start": "node server/index.js",
+        "backend": "nodemon server/index.js"
     },
     "author": "Khabubu Ndivhuwo",
     "license": "ISC",
