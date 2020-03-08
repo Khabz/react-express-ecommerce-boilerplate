@@ -104,7 +104,7 @@ function UploadMealPage(props) {
 
                 <button 
                     //onSubmit
-                    className="btn btn-outline-primary mt-3">
+                    className="btn btn-sm btn-outline-primary mt-3">
                     Submit
                 </button>
             </form>
