@@ -102,23 +102,23 @@ function LandingPage() {
                 array = data[key].array;
             }
         }
-        console.log('array', array)
+        //console.log('array', array)
         return array
     }
 
-    const handleFilters = (filters, category) => {
+    const handleFilters = (filters, serving) => {
 
         const newFilters = { ...Filters }
 
-        newFilters[category] = filters
+        newFilters[serving] = filters
 
-        if (category === "price") {
+        if (serving === "price") {
             let priceValues = handlePrice(filters)
-            newFilters[category] = priceValues
+            newFilters[serving] = priceValues
 
         }
 
-        console.log(newFilters)
+        //console.log(newFilters)
 
         showFilteredResults(newFilters)
         setFilters(newFilters)
@@ -177,7 +177,7 @@ function LandingPage() {
 
             {Meals.length === 0 ?
                 <div style={{ display: 'flex', height: '300px', justifyContent: 'center', alignItems: 'center' }}>
-                    <h2>No post yet...</h2>
+                    <h2>No meal yet...</h2>
                 </div> :
                 <div>
                     <Row gutter={[16, 16]}>

@@ -8,6 +8,8 @@ import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer";
 import UploadMealPage from "./views/UploadMealPage/UploadMealPage";
+import DetailMealPage from './views/DetailMealPage/DetailMealPage';
+
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/upload/meal" component={Auth(UploadMealPage, true)} />
+          <Route exact path="/meal/:mealId" component={Auth(DetailMealPage, null)} />
         </Switch>
       </div>
       <Footer />
