@@ -46,6 +46,9 @@
         "bootstrap": "^4.4.1",
         "http-proxy-middleware": "^0.19.1",
         "jquery": "^3.4.1",
+        "kind-of": "^6.0.3",
+        "minimist": "^1.2.5",
+        "dot-prop": ">=5.1.1",
         "popper.js": "^1.16.1"
     }
 }
