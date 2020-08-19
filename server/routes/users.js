@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User } = require("../models/User");
+const { User } = require("../models/user");
 
 const { auth } = require("../middleware/auth");
 
@@ -52,7 +52,8 @@ router.post("/login", (req, res) => {
                     .cookie("w_auth", user.token)
                     .status(200)
                     .json({
-                        loginSuccess: true, userId: user._id
+                        loginSuccess: true,
+                        userId: user._id
                     });
             });
         });
